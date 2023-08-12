@@ -1,0 +1,230 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterParent.master.cs" Inherits="MasterParent" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Archi Design Interiors | Architecture</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Font Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet"/>
+
+   
+    <script src="<%=rootPath + "js/jquery-2.2.4.min.js"%>"></script>
+
+    <link href="<%=rootPath + "css/jquery.fancybox.css"%>" rel="stylesheet" />
+    <script src="<%=rootPath + "js/jquery.fancybox.js"%>"></script>
+
+
+    <link href="<%=rootPath + "css/zoom.css"%>" rel="stylesheet" />
+    <script src="<%=rootPath + "js/zoom.js"%>"></script>
+
+
+     <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <!-- Bootstrap -->
+    <link href="Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%--<link href="<%=rootPath + "Vendor/bootstrap/css/bootstrap.min.css"%>" rel="stylesheet" />--%>
+    <script src="<%=rootPath + "Vendor/bootstrap/js/bootstrap.min.js"%>"></script>
+
+    <!--Animate Css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <%--<link href="css/hover-min.css" rel="stylesheet" />--%>
+
+    <!-- Main Css -->
+    <%--<link href="<%=rootPath + "css/archidesign.css"%>" rel="stylesheet" />--%>
+    <link href="css/archidesign.css" rel="stylesheet" />
+
+    <!-- Animate CSS  -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+
+    <!-- js files -->
+    <script src="<%=rootPath + "js/accordian.js"%>"></script>
+    
+    <%-- loader css --%>
+    <link href="<%=rootPath + "adminpanel/css/loader.css"%>" rel="stylesheet" />
+
+    <!-- Toast Notifications files -->
+    <link href="<%=rootPath + "css/toastr.css"%>" rel="stylesheet" />
+    <script src="<%=rootPath + "js/toastr.js"%>"></script>
+
+    <script type="text/javascript">
+        function TostTrigger(EventName, MsgText) {
+            // code to be executed
+            Command: toastr[EventName](MsgText)
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-full-width",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "slideDown",
+                "hideMethod": "fadeOut"
+            }
+
+        }
+    </script>
+    
+    <style>
+         .active{color:#ff6a00 !important}
+    </style>
+   
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="Greybackground">
+     <!-- Navigations Start -->
+    <section id="navrbar" class="py-1">
+        <div class="" id="text">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="<%=rootPath%>">
+                        <img alt="" src="<%=rootPath + "images/logo-archi-degin.jpeg" %>" class="lg" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <img src="images/icons/social/nav-btn-color.png" />
+                    </button>
+                    <div class="collapse navbar-collapse position-relative" id="navbarNavDropdown">
+                        <!--Navigation starts-->
+                        <ul class="navbar-nav" >
+                            <li class="nav-item">
+                                <a class="nav-link  " aria-current="page" href="<%=rootPath%>">Home</a>
+                            </li>
+
+                            <li class="nav-item" id="aboutus" runat="server">
+                                <a class="nav-link <%=activeMenu[0] %>" aria-current="page" href="<%=rootPath + "about-us"%>">About</a>
+                            </li>
+
+                            <%--<a href="#" id="mylink" style="color:blue;">My blue link</a>--%>
+
+                            <li class="nav-item">
+                                <a class="nav-link <%=activeMenu[1] %>" aria-current="page" href="<%=rootPath + "services"%>">Services</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link <%=activeMenu[2] %>"  aria-current="page" href="<%=rootPath + "projects"%>">Projects</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link <%=activeMenu[3] %>"  aria-current="page" href="<%=rootPath + "testimonials"%> ">Testimonials</a>
+                            </li>
+
+                             <li class="nav-item">
+                                    <a class="nav-link <%=activeMenu[4] %>"  aria-current="page" href="<%=rootPath + "career" %>">Career</a>
+                                </li>
+
+                            <li class="nav-item float-end">
+                                <a class="nav-link <%=activeMenu[5] %>"  href="<%=rootPath + "contact-us"%>">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                        <%--<a class="nav-link float-end btnContact" id="btnget" href="<%=rootPath + "contact-us"%>">Get a quote</a>--%>
+                       <div class="mobnav">
+                        <a class="btnquick" id="" href="services">Services</a>
+                        <a class="btnquick" id="" href="projects">Projects</a>
+                        <a class="btnquick" id="" href="Testimonials">Testimonials</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <!-- Navigations End -->
+    <div class="">
+        <a href="https://wa.me/919422411366?text=I%27m%20interested%20in%20your%20services" class="whatsappLink" target="_blank" title="Contact for quick enquiry"></a>
+    </div>
+    <div class="absTopArrow">
+        <a href="#text" title="Scroll Top">
+            <div class="fixedArrow"></div>
+        </a>
+    </div>
+    <form id="form1" runat="server">
+    <div>
+         <asp:ScriptManager runat="server">
+        </asp:ScriptManager>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    <!-- footer start -->
+    <section id="footer" class="bgfooter">
+        <!-- Footer Starts -->
+        <div class="footer">
+            <span class="space20"></span>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="p-3">
+                            <div class="">
+                                <span class="semiBold large colorWhite" >Archi Design</span>
+                                <span class="colorWhite">Architecture And Interior</span>
+                            </div>
+                            <span class="space10"></span>
+                            <span class="clrGrey small fontRegular"> &copy; <%= currentYear %> | Archi Design  Architecture And Interior , All Rights Reserved</span>
+                            <span class="clrGrey small fontRegular">Website By <a href="http://www.intellect-systems.com" target="_blank" class="intellect" title="Website Design and Development Service By Intellect Systems">Intellect Systems</a></span>
+                        </div>  
+                    </div>
+                    <div class="col-md-7 d-flex align-items-center justify-content-center">
+                        <div class="p-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <span class="addr line-ht-5 small">Flat No.2, Satya Apartment, Vishrambag Chowk, Vishrambag, Sangli - 416415</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="" class="email line-ht-5 small">armaheshk@gmail.com</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <%=contstr %>
+                                   <%-- <a href="tel:(0233)2302295" class="foo_call line-ht-5 small txtDecNone">(0233) 2302295</a>--%>
+                                    <span class="space10"></span>
+                                    <%--<img src="images/universal-interio.jpg" />--%>
+                                    <span class="fontRegular regular semiBold text-white">Our Interior Designing Branch</span>
+                                    <span class="space10"></span>
+                                    <img src="images/universal-interio.jpg" style="width: 120px" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="float_clear"></div>
+                <div class="Socialicons d-inline-block me-4">
+                    <div class="p-3">
+                        <a href="https://www.facebook.com/profile.php?id=100054451691079" class="" target="_blank"><img src="<%=rootPath + "images/icons/footfb.png" %>" /></a>
+                        <a href="https://www.instagram.com/universal_interiors_/" class="" target="_blank"><img src="<%=rootPath + "images/icons/footinstagram.png" %>" /></a>
+                        <a href="https://www.youtube.com/watch?v=Togyh3WTOy4" class="" target="_blank"><img src="<%=rootPath + "images/icons/footyoutube.png" %>" /></a>
+                    </div>
+                </div>
+            </div>
+            <span class="space20"></span>
+        </div>
+    </section>
+    <!-- footer end -->
+
+     <script>
+        AOS.init();
+     </script>
+
+     <script>
+      
+     </script>
+
+</body>
+</html>
